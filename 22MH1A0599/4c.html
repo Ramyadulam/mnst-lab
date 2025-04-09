@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Details</title>
+    <style>
+        div#maincontent {
+            height: auto;
+            width: 500px;
+            border: 1px solid #CEE2FA;
+            text-align: left;
+            color: #08438E;
+            font-family: calibri;
+            font-size: 20px;
+            padding: 10px;
+            margin-left: 10px;
+        }
+
+        div#heading {
+            text-align: center;
+            margin-top: 40px;
+            margin-left: 10px;
+            width: 500px;
+            background-color: #CEE2FA;
+            font-family: calibri;
+            font-size: 20px;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        h2 {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            color: #08438E;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="heading">
+        <h2>Booking Summary</h2>
+    </div>
+
+    <div id="maincontent">
+        <p id="content"></p>
+    </div>
+
+    <footer>Done by &copy; 22MH1A0599</footer>
+
+    <script>
+        function calculateCost(n) {
+            const content = document.getElementById('content');
+            const costPerTicket = 9;
+
+            if (n >= 1 && n <= 5) {
+                const totalCost = n * costPerTicket;
+                content.innerHTML = `
+                    Cost per ticket: $${costPerTicket}<br><br>
+                    Total cost: $${totalCost}<br>
+                    Congratulations! ${n} tickets are available for discount.<br>
+                    <a id="applyDiscount">Apply Discount</a>
+                `;
+
+                document.getElementById('applyDiscount').addEventListener("click", function(event) {
+                    event.preventDefault(); // prevent page reload
+                    calculateDiscount(n);
+                });
+            } else {
+                content.innerHTML = "Invalid number of tickets!";
+            }
+        }
+
+        function calculateDiscount(n) {
+            const discount = (n * 9) * ((2 * n + 3) / 100);
+            const finalCost = (n * 9) - discount;
+            alert(`Amount payable after discount: $${finalCost.toFixed(2)}`);
+        }
+
+        // Call function with desired number of tickets
+        calculateCost(4);
+    </script>
+</body>
+</html>

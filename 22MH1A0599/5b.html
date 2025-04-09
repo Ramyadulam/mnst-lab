@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script> let c=0;
+function disp(){
+let n=Math.floor(Math.random()*100.0); console.log(n);
+c++;
+if(c==5){ clearInterval(t);
+}
+};
+let t=setInterval(disp,2000);
+let prom=new Promise(function(resolve,reject){ if(disp){
+setTimeout(function(){resolve("promise success")},10000);
+}
+else{
+setTimeout(function(){reject("promise failed")},10000);
+}
+});
+prom.then(function(cse){ console.log(cse); console.log(prom);
+});
+prom.catch(function(cse){ console.log(cse);
+});
+console.log("Done by 22MH1A0599")
+</script>
+</body>
+</html>

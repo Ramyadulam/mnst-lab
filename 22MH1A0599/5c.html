@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .d1 {
+            height: 200px;
+            width: 400px;
+            margin: auto;
+            margin-top: 250px;
+            background-color: aqua;
+            border: 5px solid red;
+            text-align: center;
+            padding: 20px;
+        }
+        .h {
+            color: blue;
+            margin-top: 20px;
+        }
+        .d2 {
+            height: 50px;
+            width: 100px;
+            background-color: pink;
+            color: blue;
+            font-size: 30px;
+            line-height: 50px;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="d1">
+        <h1 class="h" id="h1">Loading...</h1>
+        <div class="d2" id="d21">--°C</div>
+    </div>
+
+    <footer>Designed by &copy; 22MH1A0599</footer>
+
+    <script>
+        async function disp() {
+            let city = prompt("Enter city name");
+            if (!city) {
+                alert("City name is required!");
+                return;
+            }
+            const file1 = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7b8c0a5f56346c5d22d7f22582c1d4dd&units=metric`;
+            
+            try {
+                const response = await fetch(file1);
+                const data = await response.json();
+
+                if (data.cod === 200) {
+                    document.getElementById('h1').innerHTML = `${data.name}`;
+                    document.getElementById('d21').textContent = `${data.main.temp}°C`;
+                } else {
+                    document.getElementById('h1').innerHTML = "City Not Found";
+                    document.getElementById('d21').textContent = "--°C";
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                document.getElementById('h1').innerHTML = "Error!";
+                document.getElementById('d21').textContent = "--°C";
+            }
+        }
+
+        disp();
+    </script>
+
+</body>
+</html>

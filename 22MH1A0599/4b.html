@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            margin: 50px; /* margin to give space from the edges */
+            border: 2px solid;
+            height: auto;
+            padding: 10px;
+            width: 400px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div id="details">
+    <p>Details of the person are:</p>
+</div>
+
+<footer style="margin-left: 50px;">Designed by &copy; 22MH1A0599</footer>
+
+<script>
+    class Employee {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+    }
+
+    class Person extends Employee {
+        constructor(name, age, role, phone) {
+            super(name, age);
+            this.role = role;
+            this.phone = phone;
+        }
+    }
+
+    const person = new Person('Ramya', 15, 'Student', 9767676656);
+
+    function getDetails() {
+        const detailsDiv = document.getElementById('details');
+        detailsDiv.innerHTML += "Name: " + person.name + "<br>";
+        detailsDiv.innerHTML += "Age: " + person.age + "<br>";
+        detailsDiv.innerHTML += "Role: " + person.role + "<br>";
+        detailsDiv.innerHTML += "Phone: " + person.phone + "<br>";
+    }
+
+    getDetails();
+</script>
+
+</body>
+</html>

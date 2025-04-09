@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Movies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 50px;
+        }
+        .movies-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap; /* Makes it responsive */
+            margin-top: 30px;
+        }
+        .movie-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 220px;
+            transition: transform 0.3s;
+        }
+        .movie-card:hover {
+            transform: translateY(-5px);
+        }
+        .movie-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h2>22MH1A0599 Favorite Movies!!</h2>
+
+    <div class="movies-container">
+        <!-- Movie 1 -->
+        <div class="movie-card">
+            <img src="lifeisbeautiful.jpg" alt="Life is Beautiful">
+            <div><b><span id="mName0"></span></b></div>
+            <div><b>Language:</b> <span id="lang0"></span></div>
+            <div><b>Rating:</b> <span id="rating0"></span></div>
+        </div>
+
+        <!-- Movie 2 -->
+        <div class="movie-card">
+            <img src="pk1.jpg" alt="Atharintiki Daredi">
+            <div><b><span id="mName1"></span></b></div>
+            <div><b>Language:</b> <span id="lang1"></span></div>
+            <div><b>Rating:</b> <span id="rating1"></span></div>
+        </div>
+
+        <!-- Movie 3 -->
+        <div class="movie-card">
+            <img src="pk2.jpg" alt="Gabbar Singh">
+            <div><b><span id="mName2"></span></b></div>
+            <div><b>Language:</b> <span id="lang2"></span></div>
+            <div><b>Rating:</b> <span id="rating2"></span></div>
+        </div>
+    </div>
+
+    <script>
+        let movies = [
+            { name: "Life Is Beautiful", language: "Telugu", rating: "4.5" },
+            { name: "Atharintiki Daredi", language: "Telugu", rating: "4.8" },
+            { name: "Gabbar Singh", language: "Telugu", rating: "4.9" }
+        ];
+
+        document.getElementById("mName0").textContent = movies[0].name;
+        document.getElementById("lang0").textContent = movies[0].language;
+        document.getElementById("rating0").textContent = movies[0].rating;
+
+        document.getElementById("mName1").textContent = movies[1].name;
+        document.getElementById("lang1").textContent = movies[1].language;
+        document.getElementById("rating1").textContent = movies[1].rating;
+
+        document.getElementById("mName2").textContent = movies[2].name;
+        document.getElementById("lang2").textContent = movies[2].language;
+        document.getElementById("rating2").textContent = movies[2].rating;
+    </script>
+
+    <footer>
+        Designed by &copy; 22MH1A0599
+    </footer>
+
+</body>
+</html>
